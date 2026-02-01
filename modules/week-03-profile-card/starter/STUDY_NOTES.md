@@ -225,4 +225,4 @@ Answer:Good data modeling improves readability, keeps data consistent, and reduc
 **What real-world system would you like to model next?**
 [Shopping cart, game character, recipe calculator, etc.]
 
-Answer: I would like to model a shopping cart system that handles prices, discounts, taxes, and totals.
+Answer: I would like to implement shopping cart in the future.
