@@ -226,3 +226,4 @@ Answer:Good data modeling improves readability, keeps data consistent, and reduc
 [Shopping cart, game character, recipe calculator, etc.]
 
 Answer: I would like to model a shopping cart system that handles prices, discounts, taxes, and totals.
+This seems like an interesting tool to implement
