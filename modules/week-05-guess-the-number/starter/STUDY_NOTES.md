@@ -1,124 +1,174 @@
-# Week 5: Guess the Number - Study Notes
+# Week 5: Guess the Number – Study Notes
 
-**Name:**
+**Name:** Ujwal Garine
+
+---
 
 ## Loop Types
 
-**How is a `do-while` loop different from a `while` loop?**
-[Explain when each loop is best used]
+### How is a `do-while` loop different from a `while` loop?
 
-Answer:
+**Answer:**
+A `do-while` loop runs at least once before checking the condition. A `while` loop checks first and may not run at all. I used `do-while` when I needed to ask the user for input at least once.
 
-**Where did you use a `do-while` loop in this assignment and why?**
-[Describe the input validation use]
+---
 
-Answer:
+### Where did you use a `do-while` loop and why?
 
-**Where did you use a `while` loop and why?**
-[Describe the guessing loop]
+**Answer:**
+I used it when asking for the max number and number of rounds. This way, the program keeps asking until the user enters a valid number.
 
-Answer:
+---
 
-**Where did you use a `for` loop and why?**
-[Describe the rounds loop]
+### Where did you use a `while` loop and why?
 
-Answer:
+**Answer:**
+I used a `while` loop when the user was guessing the number. It keeps running until the correct number is guessed.
+
+---
+
+### Where did you use a `for` loop and why?
+
+**Answer:**
+I used a `for` loop for the rounds because I already knew how many times the game should repeat.
+
+---
 
 ## Input Validation
 
-**Why did you create a helper method for input validation?**
-[Explain how it avoids repeating code for max value and rounds]
+### Why did you make a helper method?
 
-Answer:
+**Answer:**
+I made a helper method so I didn’t have to repeat the same code again and again. It makes the program cleaner and easier to fix.
 
-**How did you make sure the max value was between 10 and 100?**
-[Explain your range check logic]
+---
 
-Answer:
+### How did you check that the max value was between 10 and 100?
 
-**How did you make sure the number of rounds was between 1 and 3?**
-[Explain your range check logic]
+**Answer:**
+I checked if the number was between 10 and 100. If it wasn’t, the program asked again.
 
-Answer:
+---
 
-**How did you handle invalid input (non-numbers)?**
-[Explain how int.TryParse works]
+### How did you check that the rounds were between 1 and 3?
 
-Answer:
+**Answer:**
+I checked if the number was between 1 and 3. If it wasn’t, the user had to re-enter it.
+
+---
+
+### How did you handle letters and invalid input?
+
+**Answer:**
+I used `int.TryParse()` to check if the input was a number. If it wasn’t, the program showed an error message.
+
+---
 
 ## Guessing Logic
 
-**How did you compare the guess to the secret number?**
-[Explain the if/else logic for too low, too high, and correct]
+### How did you compare the guess to the secret number?
 
-Answer:
+**Answer:**
+I used `if` and `else` statements. If the guess was too low, it said “Too low.” If it was too high, it said “Too high.” If it matched, it said “Correct.”
 
-**How did you count the number of guesses?**
-[Explain where you incremented the counter]
+---
 
-Answer:
+### How did you count guesses?
+
+**Answer:**
+I used a variable called `guessCount` and added 1 every time the user guessed.
+
+---
 
 ## Random Numbers
 
-**How did you generate the secret number?**
-[Explain Random and Next(min, max)]
+### How did you make the secret number?
 
-Answer:
+**Answer:**
+I used the `Random` class and `Next()` to generate a random number.
 
-**Why does `Random.Next(1, max + 1)` include the max value?**
-[Explain why +1 is needed]
+---
 
-Answer:
+### Why did you use `max + 1`?
+
+**Answer:**
+Because `Random.Next()` does not include the last number. Adding 1 makes sure the max number can be picked.
+
+---
 
 ## Testing and Debugging
 
-**What inputs did you test to confirm your loops worked correctly?**
-[List several test cases]
+### What did you test?
 
-Answer:
+**Answer:**
 
-**What bugs or errors did you encounter and fix?**
-[Describe any logic or loop errors]
+- Typing letters (abc)
+- Entering small numbers (5)
+- Entering big numbers (200)
+- Guessing correctly
+- Entering wrong rounds (0, 5)
 
-Answer:
+---
+
+### What problems did you fix?
+
+**Answer:**
+At first, I forgot to reset the guess counter each round. I also forgot to add `+1` to `Random.Next()`. After fixing those, the game worked better.
+
+---
 
 ## What I Learned
 
-**Key takeaways from this week:**
-[3-5 main things you learned]
+### Main things I learned
 
-1.
-2.
-3.
-4.
-5.
+1. How to use different loops
+2. How to check user input
+3. How random numbers work
+4. How to stop infinite loops
+5. How to fix bugs
 
-**Which loop felt most natural to use and why?**
+---
 
-Answer:
+### Which loop felt easiest?
+
+**Answer:**
+The `while` loop felt easiest because it is simple and easy to understand.
+
+---
 
 ## Time Spent
 
-**Total time:** [X hours]
+**Total time:** 4 hours
 
-**Breakdown:**
+### Breakdown
 
-- Planning the loops: [X hours]
-- Input validation: [X hours]
-- Guessing logic: [X hours]
-- Testing and debugging: [X hours]
-- Writing documentation: [X hours]
+- Planning: 1 hour
+- Input validation: 1 hour
+- Guessing logic: 30 minutes
+- Testing: 1 hour
+- Writing notes: 30 minutes
 
-**Most time-consuming part:** [Which aspect took the longest and why?]
+---
 
-Answer:
+### Most difficult part
+
+**Answer:**
+Input validation took the most time because I had to think about many possible mistakes.
+
+---
 
 ## Reflection
 
-**What would you do differently next time?**
+### What would you do differently next time?
 
-Answer:
+**Answer:**
+Next time, I would test my program earlier so I can find bugs faster.
 
-**How did using three different loop types improve your understanding of repetition?**
+---
 
-Answer:
+### How did using different loops help you?
+
+**Answer:**
+It helped me understand when each loop is useful. Now I know which loop works best in different situations.
+
+---
