@@ -3,21 +3,19 @@ namespace ProfileCard;
 using System;
 using System.Globalization;
 
-
 public class Program
 {
     public static void Main(string[] args)
     {
+        // Title banner (just for looks)
         Console.WriteLine("╔════════════════════════════════════════════╗");
         Console.WriteLine("║         STUDENT PROFILE CARD               ║");
         Console.WriteLine("╚════════════════════════════════════════════╝\n");
 
-        // TODO: Collect PERSONAL INFORMATION (strings)
-        // - Full name
-        // - Hometown (city, state)
-        // - Favorite color
-        // - Dream job
-        // Hint: string variableName = Console.ReadLine();
+        // =========================================================
+        // 1) PERSONAL INFORMATION (strings)
+        // Strings store text.
+        // =========================================================
         Console.Write("Enter your full name: ");
         string fullName = Console.ReadLine();
 
@@ -30,18 +28,18 @@ public class Program
         Console.Write("Enter your dream job: ");
         string dreamJob = Console.ReadLine();
 
-
-        // TODO: Collect ACADEMIC INFORMATION
-        // - Major (string)
-        // - GPA (double, 0.0-4.0)
-        // - Graduation year (int)
-        // - Is full-time student? (bool from yes/no)
-        // Hint: double gpa = double.Parse(Console.ReadLine());
-        // Hint: bool isFullTime = answer.ToLower() == "yes";
+        // =========================================================
+        // 2) ACADEMIC INFORMATION
+        // - major: string (text)
+        // - gpa: double (decimal number)
+        // - graduationYear: int (whole number)
+        // - isFullTime: bool (true/false) based on yes/no input
+        // =========================================================
         Console.Write("Enter your major/field of study: ");
         string major = Console.ReadLine();
 
         Console.Write("Enter your current GPA (0.0 - 4.0): ");
+        // InvariantCulture means it expects a decimal point like 3.75 (not 3,75).
         double gpa = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
         Console.Write("Enter your graduation year (e.g., 2028): ");
@@ -49,12 +47,18 @@ public class Program
 
         Console.Write("Are you a full-time student? (yes/no): ");
         string fullTimeAnswer = Console.ReadLine();
-        bool isFullTime = fullTimeAnswer != null && fullTimeAnswer.Trim().ToLower() == "yes";
 
-        // TODO: Collect ADDITIONAL DETAILS
-        // - Age (int)
-        // - Height in inches (double)
-        // - Favorite number (int)
+        // Convert the user's yes/no into a boolean (true if they typed "yes")
+        bool isFullTime =
+            fullTimeAnswer != null &&
+            fullTimeAnswer.Trim().ToLower() == "yes";
+
+        // =========================================================
+        // 3) ADDITIONAL DETAILS
+        // - age: int
+        // - heightInches: double (can include decimals like 70.5)
+        // - favoriteNumber: int
+        // =========================================================
         Console.Write("Enter your age (years): ");
         int age = int.Parse(Console.ReadLine());
 
@@ -64,26 +68,34 @@ public class Program
         Console.Write("Enter your favorite number: ");
         int favoriteNumber = int.Parse(Console.ReadLine());
 
-        // TODO: CALCULATE derived information
-        // - Birth year = 2026 - age
-        // - Years to graduation = graduationYear - 2026
-        // - Height in feet and inches: feet = heightInches / 12, inches = heightInches % 12
-        // - Is honor student? = gpa >= 3.5
-        // - Age in months = age * 12
+        // =========================================================
+        // 4) CALCULATED (derived) VALUES
+        // These are based on what the user typed.
+        // =========================================================
+
+        // Example: if it's 2026 and you're 18, birth year = 2026 - 18 = 2008
         int birthYear = 2026 - age;
+
+        // Example: if graduation year is 2028, years left = 2028 - 2026 = 2
         int yearsToGraduation = graduationYear - 2026;
+
+        // Convert inches into feet + remaining inches
+        // Example: 70.5 inches -> 5 feet, 10.5 inches
         int heightFeet = (int)(heightInches / 12);
         double remainingInches = heightInches % 12;
+
+        // Honor student if GPA is 3.5 or higher
         bool isHonorStudent = gpa >= 3.5;
+
+        // Convert age in years to age in months
         int ageInMonths = age * 12;
 
-        // TODO: DISPLAY formatted profile card
-        // Use sections with headers:
-        // - PERSONAL INFORMATION
-        // - ACADEMIC DETAILS
-        // - CALCULATED STATISTICS
-        // Use proper alignment and formatting
+        // =========================================================
+        // 5) DISPLAY THE PROFILE CARD
+        // Using alignment so it looks clean.
+        // =========================================================
         Console.WriteLine("\n═════════════════════════ PROFILE ════════════════════════");
+
         Console.WriteLine("PERSONAL INFORMATION");
         Console.WriteLine($"  {"Full Name:",-22}{fullName}");
         Console.WriteLine($"  {"Hometown:",-22}{hometown}");
@@ -92,7 +104,7 @@ public class Program
 
         Console.WriteLine("ACADEMIC DETAILS");
         Console.WriteLine($"  {"Major:",-22}{major}");
-        Console.WriteLine($"  {"GPA:",-22}{gpa:F2}");
+        Console.WriteLine($"  {"GPA:",-22}{gpa:F2}"); // F2 = show 2 decimal places
         Console.WriteLine($"  {"Graduation Year:",-22}{graduationYear}");
         Console.WriteLine($"  {"Full-Time Student:",-22}{(isFullTime ? "Yes" : "No")}");
         Console.WriteLine($"  {"Age:",-22}{age}\n");
