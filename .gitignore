@@ -93,4 +93,5 @@ Desktop.ini
 labs/**/solution/**
 !labs/**/solution/Program.cs
 !labs/**/solution/*.csproj
+!labs/**/solution/Movie.cs
 
